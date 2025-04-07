@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+//identify
 contract CrowdFund {
     struct Campaign {
         address creator;
@@ -12,7 +13,7 @@ contract CrowdFund {
         uint endAt;
         bool claimed;
     }
-
+//structure
     uint public campaignCount;
     mapping(uint => Campaign) public campaigns;
     mapping(uint => mapping(address => uint)) public pledges;
@@ -33,6 +34,8 @@ contract CrowdFund {
         require(_id < campaignCount, "Campaign does not exist");
         _;
     }
+
+//function'S
 
     function launch(string memory _title, string memory _description, uint _goal, uint _duration) external {
         require(_goal > 0, "Goal must be > 0");
@@ -105,3 +108,5 @@ contract CrowdFund {
         emit Refund(_id, msg.sender, bal);
     }
 }
+
+//batuhanKayhan
